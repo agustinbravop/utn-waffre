@@ -1,0 +1,77 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import ButtonLink from "@/components/ButtonLink.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main>
+      <h1>🧇 Waffre</h1>
+      <p>
+        Bienvenido a la <b
+          >Wiki de Apuntes de la Facultad Regional Resistencia</b
+        > de la Universidad Tecnológica Nacional. Recopilamos información de
+        todas las materias y la centralizamos en esta wiki colaborativa para que
+        puedas consultar lo que necesites.
+      </p>
+      <ButtonLink href="/wiki">Navegar</ButtonLink>
+      <p>
+        Waffre es un proyecto estudiantil no afiliado a la universidad. Los
+        apuntes son creados y mantenidos por estudiantes.
+      </p>
+      <div class="landing-card-list">
+        <div class="landing-card">
+          <h4>Colaborativo</h4>
+          <p>
+            A los apuntes los actualizamos los alumnos. Si tenés sugerencias, <a
+              href="/colaborar">avisanos</a
+            >.
+          </p>
+        </div>
+        <div class="landing-card">
+          <h4>Inclusivo</h4>
+          <p>
+            Buscamos incluir las materias de todas las carreras de la facultad.
+            Mirá nuestro <a href="/board">progreso</a>.
+          </p>
+        </div>
+        <div class="landing-card">
+          <h4>Open source</h4>
+          <p>
+            Waffre es software libre de
+            <a href="https://github.com/agustinbravop/utn-waffre"
+              >código abierto</a
+            >. Los apuntes usan la licencia Creative Commons.
+          </p>
+        </div>
+      </div>
+    </main>
+    <Footer />
+    <style>
+      .landing-card-list {
+        display: flex;
+        margin-top: 3em;
+        justify-content: space-around;
+        gap: 2em;
+
+        .landing-card {
+          flex: 1 1 0px;
+          > h4 {
+            font-size: 1.2em;
+          }
+          > p {
+            width: 100%;
+          }
+        }
+      }
+    </style>
+  </body>
+</html>

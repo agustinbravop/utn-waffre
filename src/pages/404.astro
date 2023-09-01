@@ -1,0 +1,30 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Image } from "astro:assets";
+import pageWipIllustration from "../assets/page-wip-illustration.svg";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={"Not Found"} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+    <main>
+      <h1 style={{ textAlign: "center" }}>Oops! Error 404</h1>
+      <Image
+        src={pageWipIllustration}
+        alt="Un dinosaurio con un cartel que dice 'Stop' frena a dos personas para que no entren a un sitio en construcción."
+      />
+      <p>
+        Parece que la página que buscabas no existe o está en construcción. Si
+        creés que esto es un error, avisanos por GitHub.
+      </p>
+    </main>
+    <Footer />
+  </body>
+</html>
