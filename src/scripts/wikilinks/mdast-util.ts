@@ -87,7 +87,6 @@ function fromMarkdown(opts: FromMarkdownOptions = {}) {
         value: displayName,
       },
     ];
-    console.dir(wikiLink, { depth: null });
   }
 
   return {

@@ -1,6 +1,5 @@
 import fsp from "fs/promises";
 import fs from "fs";
-import rehypeSanitize from "rehype-sanitize";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
@@ -11,6 +10,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { resolve, normalize } from "path";
 import { debugPlugin, wikiLinkPlugin } from "./wikilinks/remark-plugin";
+import rehypeMermaid from "rehype-mermaidjs";
 
 /**
  * Lee los archivos de la _Vault_ de Obsidian y los parsea a HTML que Astro puede compilar.
@@ -155,14 +155,10 @@ async function parseMarkdownFile(path: string) {
       pageResolver: (l: string) => [resolveWikilinkUrl(l)],
     })
     .use(remarkFrontmatter)
-    .use(rehypeSanitize, {
-      attributes: {
-        a: ["className", "href", "target", "rel"],
-      },
-    })
-    .use(rehypeStringify)
+    .use(rehypeMermaid)
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings)
+    .use(rehypeStringify)
     .use(debugPlugin)
     .process(obsidianMd);
 
