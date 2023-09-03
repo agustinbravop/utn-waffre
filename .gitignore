@@ -2,7 +2,7 @@
 dist/
 
 # IDE
-.vscode
+.vscode/
 
 # generated types
 .astro/
